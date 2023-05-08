@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">TreasureHunt</string>
+    <string name="my_treasure">내 보물 : </string>
+    <string name="my_level">레벨 : </string>
+    <string name="search_hint">보물 이름을 입력해 주세요.</string>
+    <string name="search_button">검색</string>
+</resources>
