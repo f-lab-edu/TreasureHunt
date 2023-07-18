@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.game.treasurehunt.MainActivity.Companion.MOVE_TREASURE_LIST_FRAGMENT
 import com.game.treasurehunt.databinding.FragmentMainBinding
 
 class MainFragment : Fragment() {
@@ -23,7 +24,7 @@ class MainFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.moveListButton.setOnClickListener {
-            (activity as MainActivity).changeFragment(2)
+            (activity as MainActivity).changeFragment(MOVE_TREASURE_LIST_FRAGMENT)
         }
     }
 }
