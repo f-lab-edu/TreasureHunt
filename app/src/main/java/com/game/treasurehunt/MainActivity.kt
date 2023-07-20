@@ -20,7 +20,7 @@ class MainActivity : AppCompatActivity() {
         changeFragment(MOVE_MAIN_FRAGMENT)
     }
 
-    fun changeFragment(index: Int) {
+    private fun changeFragment(index: Int) {
         when (index) {
             MOVE_MAIN_FRAGMENT -> {
                 supportFragmentManager.beginTransaction().apply {
