@@ -20,7 +20,7 @@ class TreasureListAdapter(
         private var currentTreasure: Treasure ?= null
 
         init {
-            binding.treasureList.setOnClickListener {
+            binding.itemTreasureList.setOnClickListener {
                 currentTreasure?.let {
                     onClick(it)
                 }
@@ -31,9 +31,9 @@ class TreasureListAdapter(
             currentTreasure = treasure
 
             binding.apply {
-                nameView.text = treasure.name
-                timeView.text = treasure.searchTime
-                likeView.text = if (treasure.like) "좋아요" else ""
+                textviewItemTreasureName.text = treasure.name
+                textviewItemTreasureSearchTime.text = treasure.searchTime
+                textviewItemTreasureIsLike.text = if (treasure.like) "좋아요" else ""
             }
         }
     }

@@ -23,9 +23,9 @@ class MainFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.moveListButton.setOnClickListener {
+        binding.fabMainMoveListFragment.setOnClickListener {
             parentFragmentManager.beginTransaction().apply {
-                replace(R.id.frameLayout, TreasureListFragment())
+                replace(R.id.frame_layout_main, TreasureListFragment())
                 commit()
             }
         }

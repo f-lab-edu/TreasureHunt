@@ -35,7 +35,7 @@ class TreasureListFragment : Fragment() {
         val treasureListAdapter = TreasureListAdapter { treasure -> adapterOnClick(treasure) }
         val concatAdapter = ConcatAdapter(treasureListHeaderAdapter, treasureListAdapter)
 
-        binding.recyclerView.apply {
+        binding.recyclerviewTreasureList.apply {
             adapter = concatAdapter
         }
 

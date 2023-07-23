@@ -15,7 +15,7 @@ class TreasureListHeaderAdapter :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(treasureCount: Int) {
             binding.apply {
-                treasureNumberText.text = treasureCount.toString()
+                textviewItemTreasureListHeaderCount.text = treasureCount.toString()
             }
         }
 

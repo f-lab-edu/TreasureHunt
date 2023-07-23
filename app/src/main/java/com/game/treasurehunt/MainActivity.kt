@@ -25,13 +25,13 @@ class MainActivity : AppCompatActivity() {
         when (index) {
             MOVE_MAIN_FRAGMENT -> {
                 supportFragmentManager.beginTransaction().apply {
-                    replace(R.id.frameLayout, MainFragment())
+                    replace(R.id.frame_layout_main, MainFragment())
                     commit()
                 }
             }
             MOVE_TREASURE_LIST_FRAGMENT -> {
                 supportFragmentManager.beginTransaction().apply {
-                    replace(R.id.frameLayout, TreasureListFragment())
+                    replace(R.id.frame_layout_main, TreasureListFragment())
                     commit()
                 }
             }
