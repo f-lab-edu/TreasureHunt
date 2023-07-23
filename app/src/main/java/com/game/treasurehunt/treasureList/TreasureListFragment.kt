@@ -14,7 +14,7 @@ import com.game.treasurehunt.databinding.FragmentTreasureListBinding
 class TreasureListFragment : Fragment() {
     private lateinit var binding: FragmentTreasureListBinding
     private val treasureListViewModel by viewModels<TreasureListViewModel> {
-        TreasureListViewModelFactory(this)
+        TreasureListViewModelFactory()
     }
 
     override fun onCreateView(

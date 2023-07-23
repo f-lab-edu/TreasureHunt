@@ -1,11 +1,10 @@
 package com.game.treasurehunt.data
 
-import android.content.res.Resources
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 
-class DataSource(resources: Resources) {
-    private val initialTreasureList = treasureList(resources)
+class DataSource {
+    private val initialTreasureList = treasureList()
     private val treasureLiveData = MutableLiveData(initialTreasureList)
 
     fun addTreasure(treasure: Treasure) {
@@ -35,9 +34,9 @@ class DataSource(resources: Resources) {
     companion object {
         private var INSTANCE: DataSource? = null
 
-        fun getDataSource(resources: Resources): DataSource {
+        fun getDataSource(): DataSource {
             return synchronized(DataSource::class) {
-                val newInstance = INSTANCE ?: DataSource(resources)
+                val newInstance = INSTANCE ?: DataSource()
                 INSTANCE = newInstance
                 newInstance
             }

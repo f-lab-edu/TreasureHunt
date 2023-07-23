@@ -1,8 +1,6 @@
 package com.game.treasurehunt.data
 
-import android.content.res.Resources
-
-fun treasureList(resources: Resources): List<Treasure> {
+fun treasureList(): List<Treasure> {
     return listOf(
         Treasure(0, "서울 숭례문", "2023-07-04 13:22:21", true),
         Treasure(0, "서울 원각사지 십층 석탑", "2023-07-05 13:22:21", false),

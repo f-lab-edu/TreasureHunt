@@ -24,12 +24,12 @@ class TreasureListViewModel(val dataSource: DataSource) : ViewModel() {
     }
 }
 
-class TreasureListViewModelFactory(private val context: TreasureListFragment) : ViewModelProvider.Factory {
+class TreasureListViewModelFactory : ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         if(modelClass.isAssignableFrom(TreasureListViewModel::class.java)) {
             @Suppress("UNCHECKED_CAST")
             return TreasureListViewModel(
-                dataSource = DataSource.getDataSource(context.resources)
+                dataSource = DataSource.getDataSource()
             ) as T
         }
         throw IllegalArgumentException("Unknown ViewModel Class")
