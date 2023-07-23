@@ -1,7 +1,6 @@
 package com.game.treasurehunt.treasureList
 
 import android.annotation.SuppressLint
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -22,9 +21,11 @@ class TreasureListHeaderAdapter :
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HeaderViewHolder {
-        val inflater =
-            parent.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
-        val binding = ItemTreasureListHeaderBinding.inflate(inflater, parent, false)
+        val binding = ItemTreasureListHeaderBinding.inflate(
+            LayoutInflater.from(parent.context),
+            parent,
+            false
+        )
         return HeaderViewHolder(binding)
     }
 

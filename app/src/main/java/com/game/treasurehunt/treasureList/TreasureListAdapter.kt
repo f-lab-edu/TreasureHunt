@@ -1,6 +1,5 @@
 package com.game.treasurehunt.treasureList
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
@@ -39,9 +38,11 @@ class TreasureListAdapter(
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TreasureListViewHolder {
-        val inflater =
-            parent.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
-        val binding = ItemTreasureListBinding.inflate(inflater, parent, false)
+        val binding = ItemTreasureListBinding.inflate(
+            LayoutInflater.from(parent.context),
+            parent,
+            false
+        )
         return TreasureListViewHolder(binding, onClick)
     }
 
