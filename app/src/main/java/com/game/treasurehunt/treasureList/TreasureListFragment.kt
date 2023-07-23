@@ -48,6 +48,7 @@ class TreasureListFragment : Fragment() {
     }
 
     private fun adapterOnClick(treasure: Treasure) {
-        Log.e("", "" + treasure.name)
+        // TODO 코드 넣고 삭제
+        Log.d("TreasureListFragment", "adapterOnClick : " + treasure.name)
     }
 }
