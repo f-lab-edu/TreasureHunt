@@ -3,7 +3,7 @@ package com.game.treasurehunt.data
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 
-class DataSource {
+class DataSource private constructor() {
     private val initialTreasureList = treasureList()
     private val treasureLiveData = MutableLiveData(initialTreasureList)
 
