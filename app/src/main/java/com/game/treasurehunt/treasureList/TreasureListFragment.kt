@@ -39,8 +39,8 @@ class TreasureListFragment : Fragment() {
             adapter = concatAdapter
         }
 
-        treasureListViewModel.treasureLiveData.observe(this) {
-            it?.let {
+        treasureListViewModel.treasureLiveData.observe(this) { list ->
+            list?.let {
                 treasureListAdapter.submitList(it as MutableList<Treasure>)
                 treasureListHeaderAdapter.updateTreasureCount(it.size)
             }
