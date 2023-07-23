@@ -16,7 +16,7 @@ class TreasureListAdapter(
         private val binding: ItemTreasureListBinding,
         val onClick: (Treasure) -> Unit
     ) : RecyclerView.ViewHolder(binding.root) {
-        private var currentTreasure: Treasure ?= null
+        private var currentTreasure: Treasure? = null
 
         init {
             binding.itemTreasureList.setOnClickListener {
