@@ -6,50 +6,50 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/my_treasure"
+        android:id="@+id/textview_main_count"
         style="@style/mainInfo"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="@string/my_treasure"
-        app:layout_constraintEnd_toStartOf="@+id/my_level"
+        app:layout_constraintEnd_toStartOf="@+id/textview_main_level"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/my_level"
+        android:id="@+id/textview_main_level"
         style="@style/mainInfo"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="@string/my_level"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/my_treasure"
+        app:layout_constraintStart_toEndOf="@+id/textview_main_count"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/search_treasure"
+        android:id="@+id/edittext_main_search"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:gravity="center"
         android:hint="@string/search_hint"
         android:inputType="text"
-        app:layout_constraintEnd_toStartOf="@id/guideline"
-        app:layout_constraintTop_toBottomOf="@+id/my_treasure"
+        app:layout_constraintEnd_toStartOf="@id/guideline_main_1"
+        app:layout_constraintTop_toBottomOf="@+id/textview_main_count"
         tools:ignore="MissingConstraints" />
 
     <Button
-        android:id="@+id/search_button"
+        android:id="@+id/button_main_search"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/black"
         android:text="@string/search_button"
-        app:layout_constraintStart_toEndOf="@+id/guideline"
-        app:layout_constraintTop_toTopOf="@+id/search_treasure" />
+        app:layout_constraintStart_toEndOf="@+id/guideline_main_1"
+        app:layout_constraintTop_toTopOf="@+id/edittext_main_search" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/move_list_button"
+        android:id="@+id/fab_main_move_list_fragment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="25dp"
@@ -59,7 +59,7 @@
         app:srcCompat="@drawable/baseline_format_list_bulleted_24" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline"
+        android:id="@+id/guideline_main_1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
