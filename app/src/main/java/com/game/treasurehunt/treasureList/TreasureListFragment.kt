@@ -1,15 +1,16 @@
 package com.game.treasurehunt.treasureList
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.ConcatAdapter
+import com.game.treasurehunt.R
 import com.game.treasurehunt.data.Treasure
 import com.game.treasurehunt.databinding.FragmentTreasureListBinding
+import com.game.treasurehunt.treasureDescription.TreasureDescriptionFragment
 
 class TreasureListFragment : Fragment() {
     private lateinit var binding: FragmentTreasureListBinding
@@ -48,7 +49,17 @@ class TreasureListFragment : Fragment() {
     }
 
     private fun adapterOnClick(treasure: Treasure) {
-        // TODO 코드 넣고 삭제
-        Log.d("TreasureListFragment", "adapterOnClick : " + treasure.name)
+        val bundle = Bundle()
+        bundle.putInt("image", treasure.image)
+        bundle.putString("name", treasure.name)
+        bundle.putString("searchTime", treasure.searchTime)
+        bundle.putBoolean("like", treasure.like)
+
+        val treasureDescriptionFragment = TreasureDescriptionFragment()
+        treasureDescriptionFragment.arguments = bundle
+        parentFragmentManager.beginTransaction().apply {
+            replace(R.id.frame_layout_main, treasureDescriptionFragment)
+            commit()
+        }
     }
 }

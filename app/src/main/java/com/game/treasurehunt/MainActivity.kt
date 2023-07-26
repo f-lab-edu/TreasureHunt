@@ -3,6 +3,7 @@ package com.game.treasurehunt
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.game.treasurehunt.databinding.ActivityMainBinding
+import com.game.treasurehunt.treasureDescription.TreasureDescriptionFragment
 import com.game.treasurehunt.treasureList.TreasureListFragment
 
 class MainActivity : AppCompatActivity() {
@@ -39,11 +40,16 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
-        val currentFragment = supportFragmentManager.fragments[0]
-        if(currentFragment is MainFragment) {
-            finish()
-        } else if(currentFragment is TreasureListFragment) {
-            changeFragment(MOVE_MAIN_FRAGMENT)
+        when (supportFragmentManager.fragments[0]) {
+            is MainFragment -> {
+                finish()
+            }
+            is TreasureListFragment -> {
+                changeFragment(MOVE_MAIN_FRAGMENT)
+            }
+            is TreasureDescriptionFragment -> {
+                changeFragment(MOVE_TREASURE_LIST_FRAGMENT)
+            }
         }
     }
 }
