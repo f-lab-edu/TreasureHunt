@@ -1,5 +1,6 @@
 package com.game.treasurehunt.treasureDescription
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -25,20 +26,24 @@ class TreasureDescriptionFragment : Fragment() {
         initView()
     }
 
+    @SuppressLint("SetTextI18n")
     private fun initView() {
         val image = arguments?.getInt("image") ?: 0
         val name = arguments?.getString("name") ?: ""
         val searchTime = arguments?.getString("searchTime") ?: ""
         val like = arguments?.getBoolean("like") ?: false
+        val level = arguments?.getString("level") ?: ""
+        val description = arguments?.getString("description") ?: ""
+        val memo = arguments?.getString("memo") ?: ""
 
         binding.textviewTreasureDescriptionName.text = name
         binding.textviewTreasureDescriptionSearchTime.text = searchTime
         if (like)
             binding.textviewTreasureDescriptionIsLike.text = "좋아요"
-        binding.textviewTreasureDescriptionLevel.text = "난이도 : 아직 설정 안됨"
+        binding.textviewTreasureDescriptionLevel.text = "난이도 : $level"
 
-        binding.textviewTreasureDescriptionDescription.text = "이 보물은 … (설명)"
-        binding.textviewTreasureDescriptionMemo.text = "메모 : "
+        binding.textviewTreasureDescriptionDescription.text = description
+        binding.textviewTreasureDescriptionMemo.text = "메모 : $memo"
 
         binding.buttonTreasureDescriptionButton.setOnClickListener {
             parentFragmentManager.beginTransaction().apply {

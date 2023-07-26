@@ -54,6 +54,9 @@ class TreasureListFragment : Fragment() {
         bundle.putString("name", treasure.name)
         bundle.putString("searchTime", treasure.searchTime)
         bundle.putBoolean("like", treasure.like)
+        bundle.putString("level", treasure.level)
+        bundle.putString("description", treasure.description)
+        bundle.putString("memo", treasure.memo)
 
         val treasureDescriptionFragment = TreasureDescriptionFragment()
         treasureDescriptionFragment.arguments = bundle
