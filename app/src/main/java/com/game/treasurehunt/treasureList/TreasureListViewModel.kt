@@ -3,6 +3,7 @@ package com.game.treasurehunt.treasureList
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.game.treasurehunt.data.DataSource
+import com.game.treasurehunt.data.EnumLevel
 import com.game.treasurehunt.data.Treasure
 
 class TreasureListViewModel(val dataSource: DataSource) : ViewModel() {
@@ -13,7 +14,7 @@ class TreasureListViewModel(val dataSource: DataSource) : ViewModel() {
         name: String?,
         searchTime: String?,
         like: Boolean?,
-        level: String?,
+        level: EnumLevel?,
         description: String?,
         memo: String?,
     ) {

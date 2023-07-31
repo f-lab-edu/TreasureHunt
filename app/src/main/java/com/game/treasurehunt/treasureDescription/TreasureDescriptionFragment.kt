@@ -32,7 +32,7 @@ class TreasureDescriptionFragment : Fragment() {
         val name = arguments?.getString("name") ?: ""
         val searchTime = arguments?.getString("searchTime") ?: ""
         val like = arguments?.getBoolean("like") ?: false
-        val level = arguments?.getString("level") ?: ""
+        val level = arguments?.get("level") ?: ""
         val description = arguments?.getString("description") ?: ""
         val memo = arguments?.getString("memo") ?: ""
 

@@ -49,14 +49,16 @@ class TreasureListFragment : Fragment() {
     }
 
     private fun adapterOnClick(treasure: Treasure) {
-        val bundle = Bundle()
-        bundle.putInt("image", treasure.image)
-        bundle.putString("name", treasure.name)
-        bundle.putString("searchTime", treasure.searchTime)
-        bundle.putBoolean("like", treasure.like)
-        bundle.putString("level", treasure.level)
-        bundle.putString("description", treasure.description)
-        bundle.putString("memo", treasure.memo)
+        val bundle = Bundle().apply {
+            putInt("image", treasure.image)
+            putInt("image", treasure.image)
+            putString("name", treasure.name)
+            putString("searchTime", treasure.searchTime)
+            putBoolean("like", treasure.like)
+            putSerializable("level", treasure.level)
+            putString("description", treasure.description)
+            putString("memo", treasure.memo)
+        }
 
         val treasureDescriptionFragment = TreasureDescriptionFragment()
         treasureDescriptionFragment.arguments = bundle
