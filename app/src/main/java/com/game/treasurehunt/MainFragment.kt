@@ -6,6 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.game.treasurehunt.databinding.FragmentMainBinding
+import com.game.treasurehunt.inquiry.InquiryFragment
+import com.game.treasurehunt.treasureDescription.TreasureDescriptionFragment
 import com.game.treasurehunt.treasureList.TreasureListFragment
 
 class MainFragment : Fragment() {
@@ -21,13 +23,30 @@ class MainFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+        initView()
+    }
 
+    private fun initView() {
         binding.fabMainMoveListFragment.setOnClickListener {
             parentFragmentManager.beginTransaction().apply {
                 replace(R.id.frame_layout_main, TreasureListFragment())
                 commit()
             }
         }
+
+        binding.fabMainMoveRegistration.setOnClickListener {
+            val bundle = Bundle().apply {
+                putString("treasure", "남대문")
+            }
+
+            val inquiryFragment = InquiryFragment()
+            inquiryFragment.arguments = bundle
+            parentFragmentManager.beginTransaction().apply {
+                replace(R.id.frame_layout_main, inquiryFragment)
+                commit()
+            }
+        }
     }
+
+
 }
