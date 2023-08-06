@@ -3,6 +3,8 @@ package com.game.treasurehunt
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.game.treasurehunt.databinding.ActivityMainBinding
+import com.game.treasurehunt.inquiry.InquiryFragment
+import com.game.treasurehunt.registration.RegistrationFragment
 import com.game.treasurehunt.treasureDescription.TreasureDescriptionFragment
 import com.game.treasurehunt.treasureList.TreasureListFragment
 
@@ -49,6 +51,12 @@ class MainActivity : AppCompatActivity() {
             }
             is TreasureDescriptionFragment -> {
                 changeFragment(MOVE_TREASURE_LIST_FRAGMENT)
+            }
+            is InquiryFragment -> {
+                changeFragment(MOVE_MAIN_FRAGMENT)
+            }
+            is RegistrationFragment -> {
+                changeFragment(MOVE_MAIN_FRAGMENT)
             }
         }
     }

@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.game.treasurehunt.R
+import com.game.treasurehunt.data.EnumLevel
 import com.game.treasurehunt.databinding.FragmentTreasureDescriptionBinding
 import com.game.treasurehunt.treasureList.TreasureListFragment
 
@@ -40,7 +41,14 @@ class TreasureDescriptionFragment : Fragment() {
         binding.textviewTreasureDescriptionSearchTime.text = searchTime
         if (like)
             binding.textviewTreasureDescriptionIsLike.text = "좋아요"
-        binding.textviewTreasureDescriptionLevel.text = "난이도 : $level"
+        when(level) {
+            EnumLevel.TOP ->
+                binding.textviewTreasureDescriptionLevel.text = "난이도 : 상"
+            EnumLevel.MIDDLE ->
+                binding.textviewTreasureDescriptionLevel.text = "난이도 : 중"
+            EnumLevel.LOW ->
+                binding.textviewTreasureDescriptionLevel.text = "난이도 : 하"
+        }
 
         binding.textviewTreasureDescriptionDescription.text = description
         binding.textviewTreasureDescriptionMemo.text = "메모 : $memo"

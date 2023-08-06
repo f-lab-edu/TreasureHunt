@@ -6,4 +6,12 @@
     <string name="search_button">검색</string>
     <string name="title_treasure_list">보물 목록</string>
     <string name="button_confirm">확인</string>
+    <string name="button_no">아니오</string>
+    <string name="button_yes">예</string>
+    <string name="textview_inquiry_line1">축하 합니다</string>
+    <string name="textview_inquiry_line2">[%s]</string>
+    <string name="textview_inquiry_line3">발견 했습니다</string>
+    <string name="textview_inquiry_line4">등록 하겠습니까?</string>
+    <string name="button_registration">등록</string>
+    <string name="button_cancel">취소</string>
 </resources>
