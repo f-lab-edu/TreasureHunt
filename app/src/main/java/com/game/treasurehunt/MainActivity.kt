@@ -2,11 +2,17 @@ package com.game.treasurehunt
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.game.treasurehunt.data.TreasureRepository
+import com.game.treasurehunt.data.local.TreasureDatabase
+import com.game.treasurehunt.data.treasureList
 import com.game.treasurehunt.databinding.ActivityMainBinding
 import com.game.treasurehunt.inquiry.InquiryFragment
 import com.game.treasurehunt.registration.RegistrationFragment
 import com.game.treasurehunt.treasureDescription.TreasureDescriptionFragment
 import com.game.treasurehunt.treasureList.TreasureListFragment
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -22,6 +28,13 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         changeFragment(MOVE_MAIN_FRAGMENT)
+
+        // TODO 삭제 (테스트 데이터 Room DB에 삽입)
+        CoroutineScope(Dispatchers.IO).launch {
+            for(i: Int in 0 until treasureList().size) {
+                TreasureRepository(TreasureDatabase.getInstance(this@MainActivity)!!.treasureDao()).insert(treasureList()[i])
+            }
+        }
     }
 
     private fun changeFragment(index: Int) {

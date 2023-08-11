@@ -9,13 +9,15 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.ConcatAdapter
 import com.game.treasurehunt.R
 import com.game.treasurehunt.data.Treasure
+import com.game.treasurehunt.data.TreasureRepository
+import com.game.treasurehunt.data.local.TreasureDatabase
 import com.game.treasurehunt.databinding.FragmentTreasureListBinding
 import com.game.treasurehunt.treasureDescription.TreasureDescriptionFragment
 
 class TreasureListFragment : Fragment() {
     private lateinit var binding: FragmentTreasureListBinding
     private val treasureListViewModel by viewModels<TreasureListViewModel> {
-        TreasureListViewModelFactory()
+        TreasureListViewModelFactory(TreasureRepository(TreasureDatabase.getInstance(requireContext())!!.treasureDao()))
     }
 
     override fun onCreateView(
@@ -50,8 +52,7 @@ class TreasureListFragment : Fragment() {
 
     private fun adapterOnClick(treasure: Treasure) {
         val bundle = Bundle().apply {
-            putInt("image", treasure.image)
-            putInt("image", treasure.image)
+            putString("image", treasure.image)
             putString("name", treasure.name)
             putString("searchTime", treasure.searchTime)
             putBoolean("like", treasure.like)

@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.game.treasurehunt.databinding.FragmentMainBinding
 import com.game.treasurehunt.inquiry.InquiryFragment
-import com.game.treasurehunt.treasureDescription.TreasureDescriptionFragment
 import com.game.treasurehunt.treasureList.TreasureListFragment
 
 class MainFragment : Fragment() {
