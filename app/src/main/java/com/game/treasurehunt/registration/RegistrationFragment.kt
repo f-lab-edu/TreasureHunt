@@ -9,7 +9,13 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.game.treasurehunt.MainFragment
 import com.game.treasurehunt.R
+import com.game.treasurehunt.data.TreasureRepository
+import com.game.treasurehunt.data.getTreasureSample1
+import com.game.treasurehunt.data.local.TreasureDatabase
 import com.game.treasurehunt.databinding.FragmentRegistrationBinding
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
 
 class RegistrationFragment : Fragment() {
@@ -40,6 +46,12 @@ class RegistrationFragment : Fragment() {
         binding.textviewRegistrationSearchTime.text = searchTime
 
         binding.buttonRegistrationRegistration.setOnClickListener {
+
+            // TODO 버튼 눌렀을 때 테스트 데이터 추가 (추후 삭제)
+            CoroutineScope(Dispatchers.IO).launch {
+                TreasureRepository(TreasureDatabase.getInstance(requireContext())!!.treasureDao()).insert(getTreasureSample1())
+            }
+
             Toast.makeText(context, "등록이 완료 되었습니다.", Toast.LENGTH_SHORT).show()
             parentFragmentManager.beginTransaction().apply {
                 replace(R.id.frame_layout_main, MainFragment())
