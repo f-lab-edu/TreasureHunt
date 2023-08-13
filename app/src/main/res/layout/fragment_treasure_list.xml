@@ -1,8 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_treasure_list"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/teal_200"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/toolbar_imageview_treasure_list_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/baseline_arrow_back_24" />
+
+    </androidx.appcompat.widget.Toolbar>
 
     <Spinner
         android:id="@+id/spinner_treasure_list_type1"
@@ -10,7 +27,7 @@
         android:layout_height="50dp"
         app:layout_constraintEnd_toStartOf="@id/spinner_treasure_list_type2"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_treasure_list" />
 
     <Spinner
         android:id="@+id/spinner_treasure_list_type2"
@@ -18,7 +35,7 @@
         android:layout_height="50dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/spinner_treasure_list_type1"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_treasure_list" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerview_treasure_list"

@@ -4,6 +4,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_inquiry"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/teal_200"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/toolbar_imageview_inquiry_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/baseline_arrow_back_24" />
+
+    </androidx.appcompat.widget.Toolbar>
+
     <TextView
         android:id="@+id/textview_inquiry_line1"
         android:layout_width="wrap_content"
@@ -16,7 +32,7 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_inquiry" />
 
     <TextView
         android:id="@+id/textview_inquiry_line2"
@@ -63,7 +79,6 @@
         android:id="@+id/button_inquiry_yes"
         android:layout_width="0dp"
         android:layout_height="80dp"
-        android:layout_marginBottom="30dp"
         android:backgroundTint="@color/black"
         android:text="@string/button_yes"
         android:textSize="30sp"
