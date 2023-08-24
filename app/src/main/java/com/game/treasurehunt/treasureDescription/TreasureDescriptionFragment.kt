@@ -25,6 +25,7 @@ class TreasureDescriptionFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         initView()
+        initToolBar()
     }
 
     @SuppressLint("SetTextI18n")
@@ -41,7 +42,7 @@ class TreasureDescriptionFragment : Fragment() {
         binding.textviewTreasureDescriptionSearchTime.text = searchTime
         if (like)
             binding.textviewTreasureDescriptionIsLike.text = "좋아요"
-        when(level) {
+        when (level) {
             EnumLevel.TOP ->
                 binding.textviewTreasureDescriptionLevel.text = "난이도 : 상"
             EnumLevel.MIDDLE ->
@@ -54,6 +55,15 @@ class TreasureDescriptionFragment : Fragment() {
         binding.textviewTreasureDescriptionMemo.text = "메모 : $memo"
 
         binding.buttonTreasureDescriptionButton.setOnClickListener {
+            parentFragmentManager.beginTransaction().apply {
+                replace(R.id.frame_layout_main, TreasureListFragment())
+                commit()
+            }
+        }
+    }
+
+    private fun initToolBar() {
+        binding.toolbarImageviewTreasureDescriptionBack.setOnClickListener {
             parentFragmentManager.beginTransaction().apply {
                 replace(R.id.frame_layout_main, TreasureListFragment())
                 commit()

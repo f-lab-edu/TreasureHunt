@@ -32,6 +32,7 @@ class RegistrationFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         initView()
+        initToolBar()
     }
 
     @SuppressLint("SimpleDateFormat")
@@ -49,7 +50,9 @@ class RegistrationFragment : Fragment() {
 
             // TODO 버튼 눌렀을 때 테스트 데이터 추가 (추후 삭제)
             CoroutineScope(Dispatchers.IO).launch {
-                TreasureRepository(TreasureDatabase.getInstance(requireContext())!!.treasureDao()).insert(getTreasureSample1())
+                TreasureRepository(
+                    TreasureDatabase.getInstance(requireContext())!!.treasureDao()
+                ).insert(getTreasureSample1())
             }
 
             Toast.makeText(context, "등록이 완료 되었습니다.", Toast.LENGTH_SHORT).show()
@@ -61,6 +64,15 @@ class RegistrationFragment : Fragment() {
 
         binding.buttonRegistrationCancel.setOnClickListener {
             Toast.makeText(context, "취소 했습니다", Toast.LENGTH_SHORT).show()
+            parentFragmentManager.beginTransaction().apply {
+                replace(R.id.frame_layout_main, MainFragment())
+                commit()
+            }
+        }
+    }
+
+    private fun initToolBar() {
+        binding.toolbarImageviewRegistrationBack.setOnClickListener {
             parentFragmentManager.beginTransaction().apply {
                 replace(R.id.frame_layout_main, MainFragment())
                 commit()

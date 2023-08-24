@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.ConcatAdapter
+import com.game.treasurehunt.MainFragment
 import com.game.treasurehunt.R
 import com.game.treasurehunt.data.Treasure
 import com.game.treasurehunt.data.TreasureRepository
@@ -17,7 +18,11 @@ import com.game.treasurehunt.treasureDescription.TreasureDescriptionFragment
 class TreasureListFragment : Fragment() {
     private lateinit var binding: FragmentTreasureListBinding
     private val treasureListViewModel by viewModels<TreasureListViewModel> {
-        TreasureListViewModelFactory(TreasureRepository(TreasureDatabase.getInstance(requireContext())!!.treasureDao()))
+        TreasureListViewModelFactory(
+            TreasureRepository(
+                TreasureDatabase.getInstance(requireContext())!!.treasureDao()
+            )
+        )
     }
 
     override fun onCreateView(
@@ -31,6 +36,7 @@ class TreasureListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         initRecyclerView()
+        initToolBar()
     }
 
     private fun initRecyclerView() {
@@ -66,6 +72,15 @@ class TreasureListFragment : Fragment() {
         parentFragmentManager.beginTransaction().apply {
             replace(R.id.frame_layout_main, treasureDescriptionFragment)
             commit()
+        }
+    }
+
+    private fun initToolBar() {
+        binding.toolbarImageviewTreasureListBack.setOnClickListener {
+            parentFragmentManager.beginTransaction().apply {
+                replace(R.id.frame_layout_main, MainFragment())
+                commit()
+            }
         }
     }
 }

@@ -5,6 +5,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_registration"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/teal_200"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/toolbar_imageview_registration_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/baseline_arrow_back_24" />
+
+    </androidx.appcompat.widget.Toolbar>
+
     <TextView
         android:id="@+id/textview_registration_name"
         android:layout_width="wrap_content"
@@ -15,7 +31,7 @@
         android:textSize="25sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_registration"
         tools:text="남대문" />
 
     <TextView
@@ -149,7 +165,7 @@
         android:id="@+id/view_registration_line5"
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="10dp"
         android:background="@color/black"
         app:layout_constraintTop_toBottomOf="@id/textview_registration_memo" />
 
@@ -157,7 +173,6 @@
         android:id="@+id/button_registration_registration"
         android:layout_width="0dp"
         android:layout_height="80dp"
-        android:layout_marginBottom="30dp"
         android:backgroundTint="@color/black"
         android:text="@string/button_registration"
         android:textSize="30sp"
