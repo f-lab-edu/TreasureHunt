@@ -1,21 +1,24 @@
 pipeline {
     agent any
 
-    options {
-        skipStagesAfterUnstable()
-    }
-
-    environment {
-        // Build Variant에 대해서 설정했었다면 어떤 Variant로 Build할지 선택하기.
-        BUILD_VARIANT = "debug" //"DevAlpha"
-    }
-
     stages {
-
-        stage("Assemble") {
+        stage('git-clone') {
             steps {
-                sh "./gradlew assemble${env.BUILD_VARIANT} --stacktrace"
-                // archiveArtifacts artifacts: "**/*.apk, **/mapping.txt", fingerprint: true
+                git(
+                    url: "git@github.com:sanggeun-choi/android-example.git",
+                    credentialsId: "android-example",
+                    branch: "develop"
+                )
+            }
+        }
+
+        stage('build-with-gradle') {
+            steps {
+                sh "chmod +x gradlew"
+                sh "./gradlew clean assemble" // 일반 APK 빌드
+                // sh "./gradlew clean app:assembleDebug" // DEBUG APK 빌드
+                // sh "./gradlew clean app:assembleRelease" // RELEASE APK 빌드
+                sh "find $WORKSPACE -name '*.apk'"
             }
         }
     }
