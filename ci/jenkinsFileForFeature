@@ -5,10 +5,6 @@ pipeline {
         skipStagesAfterUnstable()
     }
 
-    tools {
-        jdk("JAVA8")
-    }
-
     environment {
         // Build Variant에 대해서 설정했었다면 어떤 Variant로 Build할지 선택하기.
         BUILD_VARIANT = "Debug" //"DevAlpha"
