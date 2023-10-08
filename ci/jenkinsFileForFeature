@@ -7,7 +7,7 @@ pipeline {
 
     environment {
         // Build Variant에 대해서 설정했었다면 어떤 Variant로 Build할지 선택하기.
-        BUILD_VARIANT = "Debug" //"DevAlpha"
+        BUILD_VARIANT = "debug" //"DevAlpha"
     }
 
     stages {
@@ -15,7 +15,7 @@ pipeline {
         stage("Assemble") {
             steps {
                 sh "./gradlew assemble${env.BUILD_VARIANT} --stacktrace"
-                archiveArtifacts artifacts: "**/*.apk, **/mapping.txt", fingerprint: true
+                //archiveArtifacts artifacts: "**/*.apk, **/mapping.txt", fingerprint: true
             }
         }
     }
