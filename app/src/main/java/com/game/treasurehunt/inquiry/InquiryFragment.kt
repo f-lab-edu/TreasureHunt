@@ -25,6 +25,7 @@ class InquiryFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         initView()
+        initToolBar()
     }
 
     @SuppressLint("StringFormatMatches")
@@ -45,6 +46,15 @@ class InquiryFragment : Fragment() {
             }
         }
         binding.buttonInquiryNo.setOnClickListener {
+            parentFragmentManager.beginTransaction().apply {
+                replace(R.id.frame_layout_main, MainFragment())
+                commit()
+            }
+        }
+    }
+
+    private fun initToolBar() {
+        binding.toolbarImageviewInquiryBack.setOnClickListener {
             parentFragmentManager.beginTransaction().apply {
                 replace(R.id.frame_layout_main, MainFragment())
                 commit()
