@@ -2,15 +2,6 @@ pipeline {
     agent any
 
     stages {
-        stage('git-clone') {
-            steps {
-                git(
-                    url: "git@github.com:sanggeun-choi/android-example.git",
-                    credentialsId: "android-example",
-                    branch: "develop"
-                )
-            }
-        }
 
         stage('build-with-gradle') {
             steps {
