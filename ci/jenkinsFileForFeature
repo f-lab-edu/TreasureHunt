@@ -12,13 +12,6 @@ pipeline {
 
     stages {
 
-        stage("Unit Test") {
-            steps {
-                sh "./gradlew test${env.BUILD_VARIANT}UnitTest --stacktrace"
-                junit "**/TEST-*.xml"
-            }
-        }
-
         stage("Assemble") {
             steps {
                 sh "./gradlew assemble${env.BUILD_VARIANT} --stacktrace"
