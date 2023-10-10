@@ -4,11 +4,11 @@ pipeline {
     stages {
         stage('build-with-gradle') {
             steps {
-                sh "chmod +x gradlew"
-                sh "./gradlew clean assemble" // 일반 APK 빌드
+                bash "chmod +x gradlew"
+                bash "./gradlew clean assemble" // 일반 APK 빌드
                 // sh "./gradlew clean app:assembleDebug" // DEBUG APK 빌드
                 // sh "./gradlew clean app:assembleRelease" // RELEASE APK 빌드
-                sh "find $WORKSPACE -name '*.apk'"
+                bash "find $WORKSPACE -name '*.apk'"
             }
         }
     }
